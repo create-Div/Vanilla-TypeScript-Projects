@@ -129,7 +129,7 @@ main {
   label:has(+ input[required])::after {
     content: "*";
     color: red;
-    transform: translateY(10%);
+    transform: translateY(12%);
   }
 
   input {
