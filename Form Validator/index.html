@@ -11,64 +11,49 @@
   </head>
   <body>
     <main>
-      <form id="registration-form" novalidate>
+      <form id="registration-form">
         <h1>Register With Us</h1>
+        <label for="username"> Username</label>
+        <input
+          id="username"
+          name="username"
+          type="text"
+          placeholder="John"
+          required
+          autocomplete="username"
+        />
 
-        <label for="username">
-          Username
-          <input
-            id="username"
-            name="username"
-            type="text"
-            placeholder="John"
-            required
-            autocomplete="username"
-          />
-          <span id="username-error" class="error" aria-live="assertive"></span>
-        </label>
+        <label for="email"> Email </label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="john@email.com"
+          required
+          autocomplete="email"
+        />
+     
 
-        <label for="email">
-          Email
-          <input
-            id="email"
-            name="email"
-            type="email"
-            placeholder="john@email.com"
-            required
-            autocomplete="email"
-          />
-          <span id="email-error" class="error" aria-live="assertive"></span>
-        </label>
+        <label for="password"> Password </label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          placeholder="Enter password"
+          required
+          autocomplete="new-password"
+        />
 
-        <label for="password">
-          Password
-          <input
-            id="password"
-            name="password"
-            type="password"
-            placeholder="Enter password"
-            required
-            autocomplete="new-password"
-          />
-          <span id="password-error" class="error" aria-live="assertive"></span>
-        </label>
-
-        <label for="confirm-password">
-          Confirm Password
-          <input
-            id="confirm-password"
-            name="confirm-password"
-            type="password"
-            placeholder="Confirm password"
-            required
-            autocomplete="new-password"
-          />
-          <span
-            id="confirm-password-error"
-            class="error"
-            aria-live="assertive"
-          ></span>
-        </label>
+        <label for="confirm-password"> Confirm Password </label>
+        <input
+          id="confirm-password"
+          name="confirm-password"
+          type="password"
+          placeholder="Confirm password"
+          required
+          autocomplete="new-password"
+        />
+        
         <button type="submit">Submit</button>
       </form>
     </main>

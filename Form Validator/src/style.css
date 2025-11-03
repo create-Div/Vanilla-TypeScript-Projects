@@ -1,4 +1,4 @@
-@layer reset, base, layout, components, utilities;
+@layer reset, base, layout, components;
 
 @layer reset {
   /* 1. Use a more-intuitive box-sizing model */
@@ -69,6 +69,10 @@
     text-wrap: balance;
   }
 
+  button {
+    cursor: pointer;
+  }
+
   /*
   10. Create a root stacking context
 */
@@ -87,14 +91,20 @@
   }
 }
 
+main {
+  width: 100%;
+}
+
 @layer components {
   form {
-    width: 40vw;
+    width: 90%;
+    max-width: 700px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     padding: 30px 40px;
     font-size: 1.2rem;
-    gap: 25px;
+    gap: 10px;
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
     background-color: white;
@@ -110,37 +120,60 @@
     width: 100%;
   }
 
-  input[type="email"]::placeholder {
-    text-transform: none;
+  label {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+  }
+
+  label:has(+ input[required])::after {
+    content: "*";
+    color: red;
+    transform: translateY(10%);
   }
 
   input {
     border-radius: 5px;
     border: 2px solid rgba(128, 128, 128, 0.35);
-    margin-top: 5px;
     padding: 5px;
   }
-}
+  input::placeholder {
+    text-indent: 5px;
+    font-size: 1rem;
+  }
 
-input::placeholder {
-  text-indent: 5px;
-  font-size: 1rem;
-}
+  input[type="email"]::placeholder {
+    text-transform: none;
+  }
 
-h1 {
-  text-align: center;
-  font-size: 1.4rem;
-  font-weight: 700;
-}
+  h1 {
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
 
-button {
-  background-color: oklch(0.65 0.13 242.69);
-  border: 2px solid oklch(0.65 0.13 242.69);
-  border-radius: 4px;
-  color: white;
-  padding: 10px 20px;
-  font-size: 1.2rem;
-}
+  button {
+    background-color: oklch(0.65 0.13 242.69);
+    border: 2px solid oklch(0.65 0.13 242.69);
+    border-radius: 4px;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    margin-top: 20px;
+  }
 
-@layer utilities {
+  .error {
+    min-height: 1.1em;
+    color: oklch(0.58 0.26 27.36);
+    font-size: 0.9rem;
+    text-transform: none;
+  }
+
+  input.input-error:focus {
+    outline: none;
+  }
+
+  .input-error {
+    border-color: oklch(0.63 0.24 27);
+  }
 }
