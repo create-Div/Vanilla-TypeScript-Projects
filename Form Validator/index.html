@@ -3,52 +3,73 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>form-validator</title>
+    <title>Form Validator - Register</title>
+    <meta name="description" content="User registration form with validation" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <link rel="stylesheet" href="./src/style.css" />
     <script type="module" src="/src/main.ts"></script>
   </head>
   <body>
     <main>
-      <form>
-        <h1>register with us</h1>
-        <label>
-          username
+      <form id="registration-form" novalidate>
+        <h1>Register With Us</h1>
+
+        <label for="username">
+          Username
           <input
+            id="username"
+            name="username"
             type="text"
             placeholder="John"
-            autocomplete="username"
             required
+            autocomplete="username"
           />
+          <span id="username-error" class="error" aria-live="assertive"></span>
         </label>
-        <label>
-          email
+
+        <label for="email">
+          Email
           <input
+            id="email"
+            name="email"
             type="email"
             placeholder="john@email.com"
+            required
             autocomplete="email"
-            required
           />
+          <span id="email-error" class="error" aria-live="assertive"></span>
         </label>
-        <label>
-          password
+
+        <label for="password">
+          Password
           <input
+            id="password"
+            name="password"
             type="password"
-            placeholder="enter password"
-            autocomplete="new-password"
+            placeholder="Enter password"
             required
+            autocomplete="new-password"
           />
+          <span id="password-error" class="error" aria-live="assertive"></span>
         </label>
-        <label>
-          confirm password
+
+        <label for="confirm-password">
+          Confirm Password
           <input
+            id="confirm-password"
+            name="confirm-password"
             type="password"
-            placeholder="confirm password"
-            autocomplete="new-password"
+            placeholder="Confirm password"
             required
+            autocomplete="new-password"
           />
+          <span
+            id="confirm-password-error"
+            class="error"
+            aria-live="assertive"
+          ></span>
         </label>
-        <button>Submit</button>
+        <button type="submit">Submit</button>
       </form>
     </main>
   </body>
