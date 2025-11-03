@@ -1,16 +1,8 @@
-import { createErrorElement } from "./utils";
+import { createErrorElement, toggleRequiredAttribute } from "./utils";
 import { registrationSchema } from "./schema";
 
 const formEl = document.querySelector("form") as HTMLFormElement;
 const inputEls = document.querySelectorAll("input");
-
-function toggleRequiredAttribute(input: HTMLInputElement, isValid: boolean) {
-  if (isValid) {
-    input.removeAttribute("required");
-  } else {
-    input.setAttribute("required", "");
-  }
-}
 
 inputEls.forEach((input) => {
   input.addEventListener("blur", () => {
@@ -73,7 +65,6 @@ formEl.addEventListener("submit", (e) => {
       }
     });
   } else {
-    console.log("✅ Form is valid!", result.data);
     alert("Registration successful!");
     formEl.reset();
   }

@@ -5,3 +5,14 @@ export function createErrorElement(message: string) {
   spanEl.textContent = message;
   return spanEl;
 }
+
+export function toggleRequiredAttribute(
+  input: HTMLInputElement,
+  isValid: boolean
+) {
+  if (isValid) {
+    input.removeAttribute("required");
+  } else {
+    input.setAttribute("required", "");
+  }
+}
