@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>exchange-rate-calculator</title>
+    <link rel="stylesheet" href="./src/style.css" />
+    <script type="module" src="/src/main.ts"></script>
+  </head>
+  <body>
+    <main>
+      <section class="container" aria-labelledby="exchange-title">
+        <img
+          src="money.png"
+          alt="Illustration of a currency exchange"
+          width="150"
+        />
+        <h1 id="exchange-title">exchange rate calculator</h1>
+        <p>Choose the currency and the amounts to get the exchange rate</p>
+        <div
+          class="currency-exchange"
+          role="group"
+          aria-label="Currency exchange form"
+        >
+          <select
+            name="starting-currency"
+            class="starting-currency"
+            aria-describedby="starting-value"
+          ></select>
+          <span class="starting-value" id="starting-value" aria-live="polite"
+            >1</span
+          >
+          <button type="button">swap</button>
+          <span class="value" aria-live="polite">1 USD = 0.68EUR</span>
+
+          <select
+            name="ending-currency"
+            class="ending-currency"
+            aria-describedby="ending-value"
+          ></select>
+          <span class="ending-value" id="ending-value" aria-live="polite"
+            >1</span
+          >
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
