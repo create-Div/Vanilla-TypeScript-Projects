@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>movie-seating-app</title>
+    <link rel="stylesheet" href="./src/style.css" />
+    <script type="module" src="/src/main.ts"></script>
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <div>
+          <label for="movie">Select a movie:</label>
+          <select name="movie" class="movie">
+            <option value="10">Avengers: Endgame ($10)</option>
+            <option value="12">Joker ($12)</option>
+            <option value="8">Toy Story 4 ($8)</option>
+            <option value="9">The Lion King ($9)</option>
+          </select>
+        </div>
+        <div class="legend">
+          <span>n/a</span>
+          <span>selected</span>
+          <span>occupied</span>
+        </div>
+        <div class="screen"></div>
+        <div class="seats"></div>
+        <p class="pricing"></p>
+      </div>
+    </main>
+  </body>
+</html>
