@@ -112,6 +112,7 @@
     display: grid;
     gap: 20px;
     text-align: center;
+    perspective: 400px;
   }
 
   .legend {
