@@ -1,0 +1,175 @@
+@layer reset, base, layout, components;
+
+:root {
+  --bg-pattern: linear-gradient(
+    0deg,
+    rgba(247, 247, 247, 1) 23.8%,
+    rgba(252, 221, 221, 1) 92%
+  );
+  --player-box-shadow: 0 20px 20px 0 rgba(252, 169, 169, 0.6);
+  --btn-primary: oklch(82.723% 0.02278 318.789);
+}
+
+@layer reset {
+  /* 1. Use a more-intuitive box-sizing model */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  /* 2. Remove default margin */
+  * {
+    margin: 0;
+  }
+
+  /* 3. Enable keyword animations */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      interpolate-size: allow-keywords;
+    }
+  }
+
+  body {
+    /* 4. Add accessible line-height */
+    line-height: 1.5;
+    /* 5. Improve text rendering */
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 6. Improve media defaults */
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  /* 7. Inherit fonts for form controls */
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  /* 8. Avoid text overflows */
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+
+  /* 9. Improve line wrapping */
+  p {
+    text-wrap: pretty;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  /*
+  10. Create a root stacking context
+*/
+  #root,
+  #__next {
+    isolation: isolate;
+  }
+}
+
+@layer base {
+  body {
+    background-image: var(--bg-pattern);
+    min-height: 100dvh;
+    background-repeat: no-repeat;
+    display: grid;
+    place-items: center;
+    font-family: "Lato", sans-serif;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 2rem;
+    text-transform: capitalize;
+    margin-bottom: 120px;
+  }
+
+  img {
+    border-radius: 50%;
+    object-fit: cover;
+    bottom: 20%;
+    left: 10%;
+    position: absolute;
+  }
+
+  button {
+    border: none;
+    background-color: transparent;
+    font-size: 1.1rem;
+    color: var(--btn-primary);
+  }
+
+  button:nth-of-type(2) {
+    font-size: 2rem;
+  }
+}
+
+@layer components {
+  .music-player {
+    background-color: white;
+    padding: 20px 30px;
+    border-radius: 15px;
+    box-shadow: var(--player-box-shadow);
+    align-items: center;
+    position: relative;
+    width: 400px;
+  }
+
+  .controls {
+    display: flex;
+    align-items: center;
+    justify-self: end;
+    gap: 40px;
+  }
+
+  .progress-container {
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+    padding: 10px;
+    width: 90%;
+    margin: 0 auto;
+    gap: 10px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+  }
+
+  input[type="range"] {
+    -webkit-appearance: none;
+    background-color: #fe8daa;
+    height: 4px;
+    width: 57%;
+    align-self: flex-end;
+    border-radius: 7px;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+}
