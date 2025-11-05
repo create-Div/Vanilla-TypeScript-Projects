@@ -4,7 +4,7 @@ import type { Post } from "./types";
 const postsContainer = document.querySelector(".posts") as HTMLElement;
 const searchInput = document.querySelector("input") as HTMLInputElement;
 
-const URL = "https://jsonplaceholder.typicode.com/posts?_limit=5";
+const URL = "https://jsonplaceholder.typicode.com/posts?_limit=10";
 
 let posts: Post[] = [];
 
@@ -15,7 +15,7 @@ const fetchPosts = async () => {
     posts = data;
     posts.forEach((post: Post) => createPost(post));
   } catch (error) {
-    throw new Error(error.message);
+    if (error instanceof Error) throw new Error(error.message);
   }
 };
 
