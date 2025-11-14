@@ -230,6 +230,11 @@
     grid-row: 2/3;
     justify-self: end;
     align-self: center;
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
   }
 }
 

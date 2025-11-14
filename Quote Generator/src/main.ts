@@ -3,7 +3,7 @@ import ky from "ky";
 const quoteEl = document.querySelector("blockquote");
 const loaderEl = document.querySelector(".loader") as HTMLSpanElement;
 const authorEl = document.querySelector("figcaption") as HTMLElement;
-const newQouteEl = document.querySelector("button") as HTMLButtonElement;
+const newQuoteBtnEl = document.querySelector("button") as HTMLButtonElement;
 
 const URL = "https://corsproxy.io/?https://www.quoterism.com/api/quotes/random";
 
@@ -21,6 +21,7 @@ type Quote = {
 async function fetchQuote() {
   try {
     loaderEl.classList.add("loader");
+    newQuoteBtnEl.disabled = true;
     const response = await ky.get<Quote>(URL);
     const data = await response.json();
     const {
@@ -37,6 +38,7 @@ async function fetchQuote() {
     else console.error("Unexpected error", error);
   } finally {
     loaderEl.classList.remove("loader");
+    newQuoteBtnEl.disabled = false;
   }
 }
 
@@ -46,6 +48,6 @@ function renderQoute(qoute: string, author: string) {
   authorEl.textContent = author;
 }
 
-newQouteEl.addEventListener("click", fetchQuote);
+newQuoteBtnEl.addEventListener("click", fetchQuote);
 
 fetchQuote();
