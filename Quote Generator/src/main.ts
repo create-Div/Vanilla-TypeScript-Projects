@@ -6,7 +6,6 @@ const authorEl = document.querySelector("figcaption") as HTMLElement;
 const newQouteEl = document.querySelector("button") as HTMLButtonElement;
 
 const URL = "https://corsproxy.io/?https://www.quoterism.com/api/quotes/random";
-let loading;
 
 type QuoteAuthor = {
   id: string;
