@@ -202,9 +202,10 @@
     position: absolute;
   }
 
-  i:first-of-type {
+  i:first-of-type:not(.fab) {
     left: 0;
     top: 0;
+    translate: -5px 0;
   }
 
   i:nth-of-type(2) {

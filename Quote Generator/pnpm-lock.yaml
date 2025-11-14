@@ -10,6 +10,10 @@ overrides:
 importers:
 
   .:
+    dependencies:
+      ky:
+        specifier: ^1.14.0
+        version: 1.14.0
     devDependencies:
       typescript:
         specifier: ~5.9.3
@@ -145,6 +149,10 @@ packages:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
+
+  ky@1.14.0:
+    resolution: {integrity: sha512-Rczb6FMM6JT0lvrOlP5WUOCB7s9XKxzwgErzhKlKde1bEV90FXplV1o87fpt4PU/asJFiqjYJxAJyzJhcrxOsQ==}
+    engines: {node: '>=18'}
 
   lightningcss-android-arm64@1.30.2:
     resolution: {integrity: sha512-BH9sEdOCahSgmkVhBLeU7Hc9DWeZ1Eb6wNS6Da8igvUwAe0sqROHddIlvU06q3WyXVEOYDZ6ykBZQnjTbmo4+A==}
@@ -381,6 +389,8 @@ snapshots:
 
   fsevents@2.3.3:
     optional: true
+
+  ky@1.14.0: {}
 
   lightningcss-android-arm64@1.30.2:
     optional: true
