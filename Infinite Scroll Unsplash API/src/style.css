@@ -118,18 +118,26 @@
 }
 
 @layer utility {
-  .loader {
-    color: black;
-    display: inline-block;
-    font-size: 10px;
-    width: 2em;
+.loader {
+  color: black;
+  display: inline-block;
+  font-size: 10px;
+  width: 2em;
     height: 2em;
     border-radius: 50%;
     position: relative;
     text-indent: -9999em;
-    animation: mulShdSpin 1.3s infinite linear;
-    transform: translateZ(0);
-  }
+  animation: mulShdSpin 1.3s infinite linear;
+  transform: translateZ(0);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease;
+}
+
+.loader.is-active {
+  opacity: 1;
+  visibility: visible;
+}
 
   @keyframes mulShdSpin {
     0%,
