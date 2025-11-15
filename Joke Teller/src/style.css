@@ -1,0 +1,130 @@
+@layer reset, base, theme, layout, utility;
+
+@layer reset {
+  /* 1. Use a more-intuitive box-sizing model */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  /* 2. Remove default margin */
+  * {
+    margin: 0;
+  }
+
+  /* 3. Enable keyword animations */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      interpolate-size: allow-keywords;
+    }
+  }
+
+  body {
+    /* 4. Add accessible line-height */
+    line-height: 1.5;
+    /* 5. Improve text rendering */
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 6. Improve media defaults */
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  /* 7. Inherit fonts for form controls */
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  /* 8. Avoid text overflows */
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+
+  /* 9. Improve line wrapping */
+  p {
+    text-wrap: pretty;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  /*
+  10. Create a root stacking context
+*/
+  #root,
+  #__next {
+    isolation: isolate;
+  }
+}
+
+@layer base {
+  body {
+    font-family: "Montserrat", sans-serif;
+    background: url("/robot.gif");
+    background-repeat: no-repeat;
+    background-position: 27%;
+    background-color: var(--bg-primary);
+  }
+
+  button {
+    text-transform: capitalize;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #ff3482;
+    color: var(--btn-color-primary);
+    font-weight: 500;
+    box-shadow: var(--btn-shadow);
+    transition: all 1s ease;
+    &:hover {
+      filter: brightness(95%);
+    }
+
+    &:active {
+      scale: 0.95;
+    }
+  }
+}
+
+@layer theme {
+  :root {
+    --bg-primary: oklch(73.773% 0.11405 221.59);
+    --btn-bg-primary: oklch(66.382% 0.23843 4.139);
+    --btn-color-primary: lch(100% 0.01 296.81);
+    --btn-shadow: 0 5px 15px 2px oklch(0% 0 0 / 0.55);
+  }
+}
+
+@layer layout {
+  body {
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
