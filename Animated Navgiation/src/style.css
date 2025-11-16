@@ -1,0 +1,177 @@
+@layer reset, base, theme, components, layout;
+
+@layer reset {
+  /* 1. Use a more-intuitive box-sizing model */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  /* 2. Remove default margin */
+  * {
+    margin: 0;
+  }
+
+  /* 3. Enable keyword animations */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      interpolate-size: allow-keywords;
+    }
+  }
+
+  body {
+    /* 4. Add accessible line-height */
+    line-height: 1.5;
+    /* 5. Improve text rendering */
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 6. Improve media defaults */
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  /* 7. Inherit fonts for form controls */
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  /* 8. Avoid text overflows */
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+
+  /* 9. Improve line wrapping */
+  p {
+    text-wrap: pretty;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  /*
+  10. Create a root stacking context
+*/
+  #root,
+  #__next {
+    isolation: isolate;
+  }
+}
+
+@layer base {
+  body {
+    font-family: "Montserrat", sans-serif;
+    color: var(--primaryColor);
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+  }
+
+  svg:hover {
+    translate: 0 -2px;
+  }
+}
+
+@layer theme {
+  :root {
+    --primaryColor: oklch(100% 0.00011 271.152);
+    --navColor1: oklch(27.447% 0.01258 222.622);
+    --navColor2: oklch(51.403% 0.14306 26.023);
+    --navColor3: oklch(59.167% 0.10266 60.132);
+    --navColor4: oklch(45.837% 0.06359 202.576);
+    --navColor5: oklch(54.303% 0.14058 145.423);
+    --overlayColor: oklch(0% 0 0 / 0.502);
+  }
+}
+
+@layer components {
+  span {
+    display: inline-block;
+    position: relative;
+  }
+
+  span::after {
+    content: "";
+    display: block;
+    height: 3px;
+    background-color: var(--primaryColor);
+    width: 100%;
+  }
+}
+
+@layer layout {
+  body {
+    min-height: 100dvh;
+    border: 2px solid red;
+    background: url("/city.avif");
+    background-size: cover;
+    background-position: center;
+    font-size: 1.4rem;
+
+    &::after {
+      content: "";
+      inset: 0;
+      position: fixed;
+      background-color: var(--overlayColor);
+      z-index: -2;
+    }
+  }
+
+  header,
+  nav,
+  ul {
+    display: flex;
+    align-items: center;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+
+  ul {
+    display: none;
+  }
+
+  .close {
+    display: none;
+  }
+}
