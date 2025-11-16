@@ -85,7 +85,7 @@
 @layer base {
   body {
     font-family: "Montserrat", sans-serif;
-    background: url("/robot.gif");
+    background: url("/robot.webp");
     background-repeat: no-repeat;
     background-position: 27%;
     background-color: var(--bg-primary);
