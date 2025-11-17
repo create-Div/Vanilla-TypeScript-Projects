@@ -104,8 +104,25 @@
     border: none;
   }
 
+  li:first-of-type {
+    background-color: var(--navColor1);
+  }
+  li:nth-of-type(2) {
+    background-color: var(--navColor2);
+  }
+  li:nth-of-type(3) {
+    background-color: var(--navColor3);
+  }
+  li:nth-of-type(4) {
+    background-color: var(--navColor4);
+  }
+  li:nth-last-of-type(5) {
+    background-color: var(--navColor5);
+  }
+
+  li a:hover,
   svg:hover {
-    translate: 0 -2px;
+    translate: 0 -5px;
   }
 }
 
@@ -139,7 +156,6 @@
 @layer layout {
   body {
     min-height: 100dvh;
-    border: 2px solid red;
     background: url("/city.avif");
     background-size: cover;
     background-position: center;
@@ -167,8 +183,54 @@
     padding: 20px;
   }
 
+  nav.is-open {
+    flex-direction: row-reverse;
+    position: fixed;
+    inset: 0;
+    align-items: start;
+    justify-content: center;
+  }
+
   ul {
     display: none;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 0;
+  }
+
+  nav.is-open ul {
+    display: flex;
+  }
+
+  nav.is-open .menu {
+    display: none;
+  }
+
+  li {
+    width: 100vw;
+    height: 25dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+
+  li.is-open {
+    transform: translateX(0);
+  }
+
+  .close-btn {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+  }
+
+  nav.is-open .close {
+    display: block;
   }
 
   .close {
