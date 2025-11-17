@@ -116,7 +116,7 @@
   li:nth-of-type(4) {
     background-color: var(--navColor4);
   }
-  li:nth-last-of-type(5) {
+  li:nth-of-type(5) {
     background-color: var(--navColor5);
   }
 
@@ -192,15 +192,22 @@
   }
 
   ul {
-    display: none;
+    position: fixed;
+    inset: 0;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
     padding: 0;
+    margin: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s ease;
   }
 
   nav.is-open ul {
-    display: flex;
+    opacity: 1;
+    pointer-events: auto;
   }
 
   nav.is-open .menu {
@@ -214,11 +221,28 @@
     align-items: center;
     justify-content: center;
     transform: translateX(-100%);
-    transition: transform 0.6s ease;
+    transition: transform 0.5s ease;
+    transition-delay: var(--stagger, 0s);
   }
 
   li.is-open {
     transform: translateX(0);
+  }
+
+  li:nth-of-type(2) {
+    --stagger: 0.08s;
+  }
+
+  li:nth-of-type(3) {
+    --stagger: 0.16s;
+  }
+
+  li:nth-of-type(4) {
+    --stagger: 0.24s;
+  }
+
+  li:nth-of-type(5) {
+    --stagger: 0.32s;
   }
 
   .close-btn {
@@ -229,7 +253,7 @@
     z-index: 100;
   }
 
-  nav.is-open .close {
+  nav.is-open .close-btn {
     display: block;
   }
 
