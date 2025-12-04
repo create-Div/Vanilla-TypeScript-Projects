@@ -4,5 +4,7 @@ const mobileBtnEl = document.querySelector(
 ) as HTMLButtonElement;
 
 mobileBtnEl.addEventListener("click", () => {
+	navEl?.classList.add("has-interacted");
 	navEl?.classList.toggle("animate-header");
+	mobileBtnEl?.classList.toggle("active");
 });
