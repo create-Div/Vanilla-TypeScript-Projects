@@ -1,0 +1,149 @@
+@layer reset, base, theme, components, layout;
+
+@layer reset {
+	/* 1. Use a more-intuitive box-sizing model */
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
+
+	/* 2. Remove default margin */
+	* {
+		margin: 0;
+	}
+
+	/* 3. Enable keyword animations */
+	@media (prefers-reduced-motion: no-preference) {
+		html {
+			interpolate-size: allow-keywords;
+		}
+	}
+
+	body {
+		/* 4. Add accessible line-height */
+		line-height: 1.5;
+		/* 5. Improve text rendering */
+		-webkit-font-smoothing: antialiased;
+	}
+
+	/* 6. Improve media defaults */
+	img,
+	picture,
+	video,
+	canvas,
+	svg {
+		display: block;
+		max-width: 100%;
+	}
+
+	/* 7. Inherit fonts for form controls */
+	input,
+	button,
+	textarea,
+	select {
+		font: inherit;
+	}
+
+	/* 8. Avoid text overflows */
+	p,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		overflow-wrap: break-word;
+	}
+
+	/* 9. Improve line wrapping */
+	p {
+		text-wrap: pretty;
+	}
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		text-wrap: balance;
+	}
+
+	button {
+		cursor: pointer;
+	}
+
+	/*
+  10. Create a root stacking context
+*/
+	#root,
+	#__next {
+		isolation: isolate;
+	}
+}
+
+@layer base {
+	body {
+		min-height: 100dvh;
+		position: relative;
+		z-index: 10;
+		display: grid;
+		place-items: center;
+		color: white;
+	}
+
+	h1 {
+		font-size: 4rem;
+		text-transform: capitalize;
+	}
+
+	main::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(rgba(0, 0, 0, 0.7));
+		pointer-events: none;
+		z-index: -1;
+	}
+
+	video {
+		position: absolute;
+		inset: 0;
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+		z-index: -2;
+	}
+
+	.btn-container {
+		position: fixed;
+		left: 10%;
+		bottom: 15%;
+		display: inline-flex;
+		border: 2px solid black;
+		border-radius: 8px;
+		gap: 25px;
+		padding: 10px 15px;
+		text-transform: capitalize;
+		background-color: white;
+		color: black;
+		font-weight: bold;
+
+		& button {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 50%;
+			border-radius: 8px;
+			background-color: cyan;
+			border: none;
+		}
+	}
+}
+
+@layer utilities {
+	.translate {
+		transform: translateX(100%);
+	}
+}

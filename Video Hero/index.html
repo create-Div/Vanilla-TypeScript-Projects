@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>video-hero</title>
+    <link
+      rel="preload"
+      as="video"
+      href="./public/video.webm"
+      type="video/webm"
+    />
+    <link rel="stylesheet" href="./src/style.css" />
+    <script type="module" src="/src/main.ts"></script>
+  </head>
+  <body>
+    <main>
+      <h1>video project</h1>
+      <video autoplay muted loop playsinline preload="auto">
+        <source src="./public/video.webm" type="video/webm" />
+      </video>
+      <div class="btn-container">
+        <span>play</span>
+        <span>pause</span>
+        <button></button>
+      </div>
+    </main>
+  </body>
+</html>
