@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tabs</title>
+    <link rel="stylesheet" href="./src/style.css" />
+    <script type="module" src="/src/main.ts"></script>
+  </head>
+  <body>
+    <header>
+      <h1>about</h1>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed, esse.
+      </p>
+    </header>
+    <main>
+      <section>
+        <img
+          src="/hero-bcg.jpeg"
+          alt="sceneic route with wooden road going into the mountains"
+          width="500"
+          height="342"
+          decoding="async"
+        />
+        <div role="tablist" aria-label="About tabs">
+          <button
+            role="tab"
+            aria-selected="true"
+            aria-controls="panel-1"
+            id="tab-1"
+              >
+            history
+          </button>
+          <button
+            role="tab"
+            aria-selected="false"
+            aria-controls="panel-2"
+            id="tab-2"
+          >
+            vision
+          </button>
+          <button
+            role="tab"
+            aria-selected="false"
+            aria-controls="panel-3"
+            id="tab-3"
+          >
+            goals
+          </button>
+        </div>
+        <article role="tabpanel" id="panel-1" aria-labelledby="tab-1">
+          <h2></h2>
+          <p></p>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
