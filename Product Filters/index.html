@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>product-filters</title>
+    <link rel="stylesheet" href="./src/style.css" />
+    <script type="module" src="/src/main.ts"></script>
+  </head>
+  <body>
+    <aside>
+      <search>
+        <form>
+          <label class="visually-hidden" for="search">search products</label>
+          <input
+            type="search"
+            id="search"
+            placeholder="Bookshelf..."
+            name="seach"
+          />
+        </form>
+      </search>
+      <h2>company</h2>
+      <div role="group" aria-label="filter by company">
+        <button type="button">All</button>
+        <button type="button">Ikea</button>
+        <button type="button">Marcos</button>
+        <button type="button">Caressa</button>
+        <button type="button">Liddy</button>
+      </div>
+    </aside>
+    <main>
+      <section class="products-list" aria-labelledby="products-heading">
+        <h2 id="products-heading" class="visually-hidden">products</h2>
+        <template>
+          <article>
+            <img src="" alt="" />
+            <h3></h3>
+            <span></span>
+          </article>
+        </template>
+      </section>
+    </main>
+  </body>
+</html>
