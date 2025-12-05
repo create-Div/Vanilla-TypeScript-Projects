@@ -99,7 +99,7 @@
 		grid-template-rows: auto 1fr;
 		gap: 0px 40px;
 		justify-content: center;
-		margin-inline: auto;
+		margin-inline: 15px;
 		max-width: 1000px;
 		margin-top: 20px;
 		border-radius: 10px;
@@ -107,8 +107,13 @@
 		& img {
 			object-fit: cover;
 			height: 100%;
+			width: 100%;
 			grid-row: span 2;
 			border-radius: 10px;
+		}
+
+		@media (width < 700px) {
+			grid-template-columns: 1fr;
 		}
 	}
 
@@ -136,6 +141,9 @@
 		border-top-left-radius: 10px;
 		border-top-right-radius: 10px;
 		border-bottom: none;
+		@media (width < 700px) {
+			margin-top: 10px;
+		}
 	}
 
 	[aria-selected="true"] {
