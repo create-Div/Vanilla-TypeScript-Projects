@@ -80,6 +80,7 @@ function createProductNode(product: Product) {
 
 	article.style.viewTransitionName = `product-${id}`;
 	imageEl.src = image;
+	imageEl.alt = title;
 	productTitle.textContent = title;
 	productPrice.textContent = new Intl.NumberFormat("en-US", {
 		style: "currency",
