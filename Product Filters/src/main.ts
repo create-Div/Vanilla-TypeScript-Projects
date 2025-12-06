@@ -1,17 +1,6 @@
 import { products } from "./products";
 import type { Product } from "./types";
 
-function debounce<T extends (...args: Parameters<T>) => void>(
-	fn: T,
-	delay = 300,
-) {
-	let timeoutId: ReturnType<typeof setTimeout>;
-	return (...args: Parameters<T>) => {
-		clearTimeout(timeoutId);
-		timeoutId = setTimeout(() => fn(...args), delay);
-	};
-}
-
 const formEl = document.querySelector("form") as HTMLFormElement;
 
 const searchInputEl = document.querySelector(
@@ -25,7 +14,18 @@ const productsContainerEl = document.querySelector(
 	".products-list",
 ) as HTMLDivElement;
 
-let filteredProducts = products;
+let filteredProducts = [...products];
+
+function debounce<T extends (...args: Parameters<T>) => void>(
+	fn: T,
+	delay = 300,
+) {
+	let timeoutId: ReturnType<typeof setTimeout>;
+	return (...args: Parameters<T>) => {
+		clearTimeout(timeoutId);
+		timeoutId = setTimeout(() => fn(...args), delay);
+	};
+}
 
 function filterProducts() {
 	const searchValue = searchInputEl.value.trim().toLowerCase();
