@@ -1,0 +1,218 @@
+@layer reset, base, layout, components;
+
+@layer reset {
+	/* 1. Use a more-intuitive box-sizing model */
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
+
+	/* 2. Remove default margin */
+	* {
+		margin: 0;
+	}
+
+	body {
+		/* 4. Add accessible line-height */
+		line-height: 1.5;
+		/* 5. Improve text rendering */
+		-webkit-font-smoothing: antialiased;
+	}
+
+	/* 6. Improve media defaults */
+	img,
+	picture,
+	video,
+	canvas,
+	svg {
+		display: block;
+		max-width: 100%;
+	}
+
+	img {
+		height: auto;
+	}
+
+	/* 7. Inherit fonts for form controls */
+	input,
+	button,
+	textarea,
+	select {
+		font: inherit;
+	}
+
+	/* 8. Avoid text overflows */
+	p,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		overflow-wrap: break-word;
+	}
+
+	/* 9. Improve line wrapping */
+	p {
+		text-wrap: pretty;
+	}
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		text-wrap: balance;
+	}
+
+	button {
+		cursor: pointer;
+	}
+
+	/*
+  10. Create a root stacking context
+*/
+	#root,
+	#__next {
+		isolation: isolate;
+	}
+}
+
+@layer base {
+	::view-transition-old(*) {
+		animation: fade-out 0.2s ease-out;
+	}
+
+	::view-transition-new(*) {
+		animation: fade-in 0.2s ease-in;
+	}
+
+	@keyframes fade-out {
+		from {
+			opacity: 1;
+			transform: scale(1);
+		}
+		to {
+			opacity: 0;
+			transform: scale(0.95);
+		}
+	}
+
+	@keyframes fade-in {
+		from {
+			opacity: 0;
+			transform: scale(1.05);
+		}
+		to {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
+
+	body {
+		background-color: #f8f7f4;
+	}
+
+	h3 {
+		color: #22d3ee;
+	}
+	h3,
+	span {
+		text-transform: capitalize;
+	}
+
+	img {
+		width: 150px;
+		height: 150px;
+		object-fit: cover;
+		border: 2px solid white;
+		border-radius: 50%;
+		margin-inline: auto;
+		box-shadow: 0 0px 2px black;
+	}
+}
+
+@layer layout {
+	body {
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	main {
+		width: min(100% - 10px, 800px);
+		margin-inline: auto;
+	}
+
+	article {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		position: relative;
+		gap: 5px;
+		padding: 20px 20px 80px;
+	}
+
+	article button {
+		position: absolute;
+	}
+
+	article button:first-of-type {
+		top: 50%;
+		left: 0;
+		transform: translateY(-50%);
+	}
+
+	article button:last-of-type {
+		top: 50%;
+		right: 0;
+		transform: translateY(-50%);
+	}
+
+	img {
+		margin-inline: auto;
+	}
+}
+
+@layer components {
+	article {
+		text-align: center;
+	}
+
+	article::after {
+		content: "\201D";
+		position: absolute;
+		bottom: -120px;
+		left: 50%;
+		transform: translate(-50%, 0);
+		background-color: transparent;
+		font-size: 10rem;
+		color: #1e3a8a;
+	}
+
+	article button {
+		padding: 1px 10px 7px;
+		font-size: 2rem;
+		line-height: 1;
+		background-color: #8c92a0;
+		border: none;
+		color: white;
+	}
+
+	article button:first-of-type {
+		border-top-right-radius: 7px;
+		border-bottom-right-radius: 7px;
+	}
+
+	article button:last-of-type {
+		border-top-left-radius: 7px;
+		border-bottom-left-radius: 7px;
+	}
+
+	article p {
+		margin-top: 15px;
+	}
+}
