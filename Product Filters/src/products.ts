@@ -1,4 +1,6 @@
-export const products = [
+import type { Product } from "./types";
+
+export const products: Product[] = [
 	{
 		id: "rec43w3ipXvP28vog",
 		title: "high-back bench",
@@ -85,4 +87,4 @@ export const products = [
 		image: "https://www.course-api.com/images/store/product-12.jpeg",
 		price: 9.99,
 	},
-]);
+];
