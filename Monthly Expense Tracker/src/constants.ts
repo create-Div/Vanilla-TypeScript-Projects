@@ -14,3 +14,11 @@ export const CATEGORIES = [
 	"bills",
 	"miscellaneous",
 ];
+
+export const CHART_COLORS = [
+	"#ff6384",
+	"#36a2eb",
+	"#ffce56",
+	"#4bc0c0",
+	"#9966ff",
+] as const;

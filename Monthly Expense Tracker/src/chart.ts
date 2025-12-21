@@ -1,12 +1,16 @@
 import Chart from "chart.js/auto";
-import { CATEGORIES } from "./constants";
+import { CATEGORIES, CHART_COLORS } from "./constants";
 import type { ExpenseData } from "./types";
 
 const form = document.querySelector("form") as HTMLFormElement;
 const canvas = document.querySelector("#expenseChart") as HTMLCanvasElement;
 
+const LEGEND_PADDING = 20;
+const CATEGORY_SPACING = CATEGORIES.length;
 const legendBoxWidth =
-	Math.floor(canvas.offsetWidth / CATEGORIES.length) - CATEGORIES.length - 20;
+	Math.floor(canvas.offsetWidth / CATEGORIES.length) -
+	CATEGORY_SPACING -
+	LEGEND_PADDING;
 
 const expenseData: ExpenseData = {};
 
@@ -54,13 +58,7 @@ export const chart = new Chart(canvas, {
 		datasets: [
 			{
 				data: Array(CATEGORIES.length).fill(0),
-				backgroundColor: [
-					"#ff6384",
-					"#36a2eb",
-					"#ffce56",
-					"#4bc0c0",
-					"#9966ff",
-				],
+				backgroundColor: CHART_COLORS,
 			},
 		],
 	},
@@ -73,6 +71,7 @@ export const chart = new Chart(canvas, {
 			title: {
 				display: true,
 				text: "",
+
 				font: {
 					size: 18,
 					weight: "bold",
@@ -80,7 +79,7 @@ export const chart = new Chart(canvas, {
 				color: "#212121",
 				padding: {
 					top: 0,
-					bottom: 0,
+					bottom: 10,
 				},
 			},
 			legend: {
