@@ -15,6 +15,8 @@ export const CATEGORIES = [
 	"miscellaneous",
 ];
 
+
+
 export const CHART_COLORS = [
 	"#ff6384",
 	"#36a2eb",

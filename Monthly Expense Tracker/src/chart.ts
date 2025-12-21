@@ -6,6 +6,7 @@ const form = document.querySelector("form") as HTMLFormElement;
 const canvas = document.querySelector("#expenseChart") as HTMLCanvasElement;
 
 const LEGEND_PADDING = 20;
+
 const CATEGORY_SPACING = CATEGORIES.length;
 const legendBoxWidth =
 	Math.floor(canvas.offsetWidth / CATEGORIES.length) -
