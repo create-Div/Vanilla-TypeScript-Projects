@@ -1,5 +1,6 @@
 import { pluralize } from "./utils";
 
+const formEL = document.querySelector("form");
 const dateInputEl = document.querySelector('[type="date"]') as HTMLInputElement;
 const ageResultEl = document.querySelector("p") as HTMLParagraphElement;
 
@@ -7,6 +8,11 @@ declare const Temporal: typeof import("@js-temporal/polyfill").Temporal;
 
 const today = Temporal.Now.plainDateISO();
 dateInputEl.max = today.toString();
+
+function handleSubmit(e: SubmitEvent): void {
+	e.preventDefault();
+	calculateAge();
+}
 
 function getBirthDate() {
 	return dateInputEl.value;
@@ -37,4 +43,4 @@ function calculateAge() {
 	setAgeResult(years, months, days);
 }
 
-dateInputEl.addEventListener("change", calculateAge);
+formEL?.addEventListener("submit", handleSubmit);

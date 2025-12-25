@@ -4,10 +4,15 @@ function pluralize(value, singular) {
 }
 
 // index.ts
+var formEL = document.querySelector("form");
 var dateInputEl = document.querySelector('[type="date"]');
 var ageResultEl = document.querySelector("p");
 var today = Temporal.Now.plainDateISO();
 dateInputEl.max = today.toString();
+function handleSubmit(e) {
+  e.preventDefault();
+  calculateAge();
+}
 function getBirthDate() {
   return dateInputEl.value;
 }
@@ -32,4 +37,4 @@ function calculateAge() {
   });
   setAgeResult(years, months, days);
 }
-dateInputEl.addEventListener("change", calculateAge);
+formEL?.addEventListener("submit", handleSubmit);
