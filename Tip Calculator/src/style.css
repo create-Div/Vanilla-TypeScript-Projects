@@ -1,4 +1,4 @@
-@layer reset, base, theme, components, layout;
+@layer reset, base, components, layout;
 @layer reset {
 	/* 1. Use a more-intuitive box-sizing model */
 	*,
@@ -78,5 +78,90 @@
 	#root,
 	#__next {
 		isolation: isolate;
+	}
+}
+
+@layer base {
+	body {
+		background-color: #f5f5f5;
+		text-transform: capitalize;
+	}
+
+	h1 {
+		text-align: center;
+	}
+
+	p {
+		text-transform: initial;
+	}
+
+	form {
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+	}
+
+	label {
+		font-weight: bold;
+	}
+
+	button {
+		background-color: #45a050;
+		border: none;
+		border-radius: 5px;
+		text-transform: inherit;
+		color: #f5f5f5;
+		margin-top: 10px;
+		padding: 5px 10px;
+		transition: filter 0.3s ease;
+
+		&:hover {
+			filter: brightness(80%);
+		}
+	}
+}
+
+@layer components {
+	section {
+		background-color: #fff;
+		box-shadow: 0 0 10px 5px rgba(0 0 0 / 0.4);
+		border-radius: 8px;
+		padding: 20px;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	output {
+		font-size: 1.2rem;
+		font-weight: bold;
+		margin-top: 15px;
+	}
+}
+
+@layer layout {
+	body {
+		min-height: 100dvh;
+		display: grid;
+		place-items: center;
+	}
+
+	main {
+		width: 100%;
+	}
+
+	section {
+		width: min(100% - 15px, 600px);
+		margin-inline: auto;
+	}
+
+	label,
+	input {
+		display: block;
+	}
+
+	input,
+	button {
+		width: 100%;
 	}
 }
