@@ -1,0 +1,13 @@
+{
+  "name": "age-calculator",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@js-temporal/polyfill": "^0.5.1",
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}

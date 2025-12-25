@@ -1,0 +1,153 @@
+@layer reset, base, theme, components, layout;
+@layer reset {
+	/* 1. Use a more-intuitive box-sizing model */
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
+
+	/* 2. Remove default margin */
+	* {
+		margin: 0;
+	}
+
+	/* 3. Enable keyword animations */
+	@media (prefers-reduced-motion: no-preference) {
+		html {
+			interpolate-size: allow-keywords;
+		}
+	}
+
+	body {
+		/* 4. Add accessible line-height */
+		line-height: 1.5;
+		/* 5. Improve text rendering */
+		-webkit-font-smoothing: antialiased;
+	}
+
+	/* 6. Improve media defaults */
+	img,
+	picture,
+	video,
+	canvas,
+	svg {
+		display: block;
+		max-width: 100%;
+	}
+
+	/* 7. Inherit fonts for form controls */
+	input,
+	button,
+	textarea,
+	select {
+		font: inherit;
+	}
+
+	/* 8. Avoid text overflows */
+	p,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		overflow-wrap: break-word;
+	}
+
+	/* 9. Improve line wrapping */
+	p {
+		text-wrap: pretty;
+	}
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		text-wrap: balance;
+	}
+
+	button {
+		cursor: pointer;
+	}
+
+	/*
+  10. Create a root stacking context
+*/
+	#root,
+	#__next {
+		isolation: isolate;
+	}
+}
+
+@layer base {
+	body {
+		background-color: #f5f5f5;
+		text-transform: capitalize;
+		font-family: Arial, Helvetica, sans-serif;
+	}
+
+	section {
+		background-color: #fff;
+		text-align: center;
+		box-shadow: 0 0 10px 2px rgba(0 0 0 / 0.5);
+	}
+
+	button {
+		text-transform: inherit;
+		background-color: #027cff;
+		border: none;
+		border-radius: 4px;
+		color: #fff;
+		padding: 10px 25px;
+		transition: filter 0.3s ease-in;
+    margin-top: 20px;
+
+		&:hover {
+			filter: brightness(120%);
+		}
+	}
+
+	label {
+		font-weight: bold;
+	}
+
+	p {
+		text-transform: initial;
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 2rem;
+	}
+}
+
+@layer layout {
+	body {
+		min-height: 100dvh;
+		display: grid;
+		place-items: center;
+	}
+
+	main {
+		width: 100%;
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 15px;
+		width: min(100% - 15px, 600px);
+		margin-inline: auto;
+		border-radius: 8px;
+		padding: 20px 0px 50px;
+		align-items: center;
+	}
+
+	label {
+		display: block;
+	}
+
+	input {
+		width: 200px;
+	}
+}
