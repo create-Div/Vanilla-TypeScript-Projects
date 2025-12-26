@@ -16,7 +16,7 @@
       <button class="btn-primary">new recipes</button>
       <section class="recipes">
         <h2 class="sr-only">recipes</h2>
-        <template>
+        <template class="recipe-template">
           <article>
             <div>
               <img src="" alt="" />
@@ -26,10 +26,49 @@
               <h4>ingredients:</h4>
               <ul></ul>
             </div>
-            <button class="btn-primary">view recipe</button>
+            <button class="btn-primary" type="button">view recipe</button>
           </article>
         </template>
       </section>
+
+      <dialog closedby="any">
+        <template class="dialog-template">
+          <article class="dialog-content">
+            <header>
+              <h2></h2>
+              <button class="close-btn" type="button" aria-label="Close">
+                &#10060;
+              </button>
+            </header>
+            <div class="dialog-body">
+              <div class="meta">
+                <dl>
+                  <dt>Category:</dt>
+                  <dd class="category"></dd>
+                  <dt>Area:</dt>
+                  <dd class="area"></dd>
+                  <dt>Last Modified:</dt>
+                  <dd>
+                    <time class="date-modified" datetime=""></time>
+                  </dd>
+                  <dt>Source:</dt>
+                  <dd>
+                    <a class="source" href="" target="_blank">View Original</a>
+                  </dd>
+                </dl>
+              </div>
+              <div class="ingredients-measures">
+                <h3>Ingredients</h3>
+                <ul></ul>
+              </div>
+              <div class="instructions">
+                <h3>Instructions</h3>
+                <ol></ol>
+              </div>
+            </div>
+          </article>
+        </template>
+      </dialog>
     </main>
   </body>
 </html>
