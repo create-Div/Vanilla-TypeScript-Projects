@@ -43,14 +43,15 @@ function updateDisplay(remainingMs: number) {
 	timerEl.textContent = `${String(minutes).padStart(2, "0")}:${String(
 		seconds,
 	).padStart(2, "0")}`;
-	timerEl.setAttribute("datetime", `PT${minutes}M${seconds}S`);
 }
 
 startBtn.addEventListener("click", startTimer);
 stopBtn.addEventListener("click", stopTimer);
 resetBtn.addEventListener("click", resetTimer);
-timeInputEl.addEventListener("change", () =>
-	updateDisplay(getStartTime() * 1000),
-);
+timeInputEl.addEventListener("change", () => {
+	const minutes = Math.max(0, Number(timeInputEl.value));
+	timerEl.setAttribute("datetime", `PT${minutes}M`);
+	updateDisplay(getStartTime() * 1000);
+});
 
 updateDisplay(getStartTime() * 1000);
