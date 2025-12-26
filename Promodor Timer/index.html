@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>promodor-timer</title>
+    <link rel="stylesheet" href="./src/style.css" />
+    <script type="module" src="/src/main.ts"></script>
+  </head>
+  <body>
+    <main>
+      <div class="set-timer-container">
+        <h1>promodoro timer</h1>
+
+        <label for="timer-input">set time:</label>
+        <input
+          class="timer-input"
+          id="timer-input"
+          type="number"
+          min="1"
+          step="1"
+          value="25"
+          aria-label="Start minutes"
+        />
+      </div>
+      <section class="timer">
+        <time datetime="PT25M">25:00</time>
+
+        <div class="btn-container">
+          <button>start</button>
+          <button>stop</button>
+          <button>reset</button>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

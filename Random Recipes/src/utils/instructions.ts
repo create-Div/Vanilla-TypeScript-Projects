@@ -2,7 +2,7 @@ import { convertTemperatures } from "./temperature";
 
 function cleanSentence(sentence: string): string {
 	return sentence
-		.replace(/^step\s*\d*:?\s*/i, "")
+		.replace(/^step\s*\d+:?\s*/i, "")
 		.replace(/^\d+[\.\)\-:\s]*\s*/i, "")
 		.trim();
 }
