@@ -265,6 +265,15 @@
 		display: flex;
 		flex-direction: column;
 		max-height: 80vh;
+		width: 100%;
+		max-width: none;
+		padding: 0;
+		margin: 0;
+		background-color: #fff;
+		border-radius: 0;
+		box-shadow: none;
+		opacity: 1;
+		animation: none;
 
 		& > header {
 			display: flex;
