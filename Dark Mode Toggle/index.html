@@ -10,15 +10,16 @@
   </head>
   <body>
     <main>
-      <div class="toggle-container">
-        <button
-          class="toggle-switch"
-          role="switch"
-          aria-label="dark mode toggle"
-        ></button>
-        <span>dark</span>
-        <span>light</span>
-      </div>
+      <label class="toggle-container">
+        <input
+          class="toggle-switch no-transition"
+          type="checkbox"
+          aria-label="color scheme"
+          id="theme-toggle"
+        />
+        <span aria-hidden="true">dark</span>
+        <span aria-hidden="true">light</span>
+      </label>
     </main>
   </body>
 </html>

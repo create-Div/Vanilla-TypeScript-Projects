@@ -1,37 +1,20 @@
-const toggleContainerEl = document.querySelector<HTMLDivElement>(
-	".toggle-container",
-) as HTMLDivElement;
-const toggleSwitchEl = document.querySelector<HTMLButtonElement>(
+const toggleSwitchEl = document.querySelector(
 	".toggle-switch",
-) as HTMLButtonElement;
+) as HTMLInputElement;
 
-toggleSwitchEl.setAttribute("role", "switch");
-toggleSwitchEl.setAttribute("aria-label", "Dark mode toggle");
+const rootEl = document.documentElement;
+const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
 
-let isDark = false;
-
-const applyState = (setDark: boolean, animate = true) => {
-	isDark = setDark;
-
-	if (!animate) {
-		toggleSwitchEl.style.transition = "none";
-	}
-
-	document.documentElement.style.colorScheme = isDark ? "dark" : "light";
-
-	toggleSwitchEl.classList.toggle("slide-toggle", isDark);
-	toggleSwitchEl.setAttribute("aria-checked", String(isDark));
-
-	if (!animate) {
-		requestAnimationFrame(() => {
-			toggleSwitchEl.style.transition = "";
-		});
-	}
+const applyTheme = (isDark: boolean) => {
+	toggleSwitchEl.checked = isDark;
+	rootEl.style.colorScheme = isDark ? "dark" : "light";
+	requestAnimationFrame(() => {
+		toggleSwitchEl.classList.remove("no-transition");
+	});
 };
 
-toggleSwitchEl.addEventListener("click", () => applyState(!isDark));
+applyTheme(prefersDark.matches);
 
-document.addEventListener("DOMContentLoaded", () => {
-	const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-	applyState(prefersDark, false);
+toggleSwitchEl.addEventListener("change", () => {
+	applyTheme(toggleSwitchEl.checked);
 });

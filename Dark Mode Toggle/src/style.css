@@ -1,4 +1,4 @@
-@layer reset, theme, base, components, layout, utlities;
+@layer reset, theme, base, components, layout, utilities;
 
 @layer reset {
 	/* 1. Use a more-intuitive box-sizing model */
@@ -86,15 +86,17 @@
 	:root {
 		color-scheme: light dark;
 		--bg-primary: light-dark(#f4f1ed, #0b0b0c);
-		--toggle-bg-primary: #bdbdbd;
-		--toggle-switch-bg-primary: #f0f0f0;
-		--toggle-text-primary: #000;
+		--toggle-bg-primary: light-dark(#bdbdbd, #121212);
+		--toggle-switch-bg-primary: light-dark(#f0f0f0, #050505);
+		--toggle-text-primary: light-dark(#000, #fff);
 	}
 }
 
 @layer base {
-	body {
+	html {
 		background-color: var(--bg-primary);
+	}
+	body {
 		font-family: Arial, Helvetica, sans-serif;
 	}
 }
@@ -111,6 +113,7 @@
 		position: relative;
 		justify-content: space-between;
 		text-transform: capitalize;
+		cursor: pointer;
 
 		& span {
 			font-size: 1.05rem;
@@ -121,6 +124,8 @@
 	}
 
 	.toggle-switch {
+		appearance: none;
+		-webkit-appearance: none;
 		width: 40%;
 		height: 90%;
 		border-radius: 50%;
@@ -129,9 +134,16 @@
 		position: absolute;
 		transition: translate 0.3s ease;
 		background-color: var(--toggle-switch-bg-primary);
+		cursor: pointer;
 
 		&:focus-visible {
-			outline: 2px solid #000;
+			outline: 2px solid var(--toggle-text-primary);
+		}
+	}
+
+	.toggle-container:has(.toggle-switch:checked) {
+		& .toggle-switch {
+			translate: calc(var(--container-width) - 100% - 8px);
 		}
 	}
 }
@@ -145,7 +157,7 @@
 }
 
 @layer utilities {
-	.slide-toggle {
-		translate: calc(var(--container-width) - 100% - 8px);
+	.no-transition {
+		transition: none;
 	}
 }
