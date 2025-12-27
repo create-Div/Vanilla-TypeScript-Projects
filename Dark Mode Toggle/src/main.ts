@@ -1,20 +1,23 @@
-const toggleSwitchEl = document.querySelector(
-	".toggle-switch",
-) as HTMLInputElement;
+const toggleSwitch = document.querySelector<HTMLInputElement>("#theme-toggle");
 
-const rootEl = document.documentElement;
-const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+if (toggleSwitch) {
+	const storageKey = "theme-preference";
 
-const applyTheme = (isDark: boolean) => {
-	toggleSwitchEl.checked = isDark;
-	rootEl.style.colorScheme = isDark ? "dark" : "light";
+	const storedTheme = localStorage.getItem(storageKey);
+	const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+	const shouldBeDark = storedTheme === "dark" || (storedTheme === null && systemDark);
+
+	toggleSwitch.checked = shouldBeDark;
+
 	requestAnimationFrame(() => {
-		toggleSwitchEl.classList.remove("no-transition");
+		requestAnimationFrame(() => {
+			toggleSwitch.classList.remove("no-transition");
+		});
 	});
-};
 
-applyTheme(prefersDark.matches);
-
-toggleSwitchEl.addEventListener("change", () => {
-	applyTheme(toggleSwitchEl.checked);
-});
+	toggleSwitch.addEventListener("change", () => {
+		const theme = toggleSwitch.checked ? "dark" : "light";
+		localStorage.setItem(storageKey, theme);
+	});
+}
